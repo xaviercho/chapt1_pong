@@ -174,7 +174,8 @@ void Game::UpdateGame()
 	// Did the ball collide with the right wall?
 	else if (mBallPos.x >= (1024.0f - thickness) && mBallVel.x > 0.0f)
 	{
-		mBallVel.x *= -1.0f;
+		//mBallVel.x *= -1.0f;
+		mIsRunning = false;
 	}
 	
 	// Did the ball collide with the top wall?
@@ -221,20 +222,22 @@ void Game::GenerateOutput()
 	SDL_RenderFillRect(mRenderer, &wall);
 	
 	// Draw right wall
-	wall.x = 1024 - thickness;
-	wall.y = 0;
-	wall.w = thickness;
-	wall.h = 1024;
-	SDL_RenderFillRect(mRenderer, &wall);
+	//wall.x = 1024 - thickness;
+	//wall.y = 0;
+	//wall.w = thickness;
+	//wall.h = 1024;
+	//SDL_RenderFillRect(mRenderer, &wall);
 	
 	// Draw paddle
 	SDL_Rect paddle{
 		static_cast<int>(mPaddlePos.x),
-		static_cast<int>(mPaddlePos.y - paddleH/2),
+	static_cast<int>(mPaddlePos.y - paddleH/4),
 		thickness,
 		static_cast<int>(paddleH)
 	};
+
 	SDL_RenderFillRect(mRenderer, &paddle);
+
 	
 	// Draw ball
 	SDL_Rect ball{	

@@ -17,6 +17,8 @@ struct Vector2
 	float y;
 };
 
+
+
 // Game class
 class Game
 {
